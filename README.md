@@ -67,6 +67,18 @@ ln -s ~/antigravity-skills/skills/* .agent/skills/
 | **Gemini** | `mkdir -p ~/.gemini/skills && ln -s ~/antigravity-skills/skills/* ~/.gemini/skills/` |
 | **Codex** | `mkdir -p ~/.codex/skills && ln -s ~/antigravity-skills/skills/* ~/.codex/skills/` |
 
+#### 🔹 方案 C：Claude Plugin 安装 (Claude Code 专用)
+如果你主要使用 **Claude Code**，可以通过插件市场一键安装（该方式会自动处理技能加载）：
+
+```bash
+# 1. 启动 Claude Code
+# 2. 添加插件市场
+/plugin marketplace add guanyang/antigravity-skills
+
+# 3. 从市场安装插件
+/plugin install antigravity-skills@antigravity-skills
+```
+
 ### 3. 使用技能
 在对话框中输入 `@[skill-name]` 或 `/skill-name` 即可调用，例如：
 ```text
