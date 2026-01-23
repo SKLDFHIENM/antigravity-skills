@@ -1,0 +1,17 @@
+{
+    "name": "antigravity-skills",
+    "owner": {
+        "name": "guanyang"
+    },
+    "metadata": {
+        "description": "Antigravity Skills plugin marketplace",
+        "version": "2.0.2"
+    },
+    "plugins": [
+        {
+            "name": "antigravity-skills",
+            "description": "Professional Agent Skills collection for full-stack development, logic planning, and multimedia processing.",
+            "source": "./"
+        }
+    ]
+}

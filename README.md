@@ -6,6 +6,7 @@
 
 ```
 .
+├── .claude-plugin/    # Claude 插件配置文件 (plugin.json, marketplace.json)
 ├── skills/             # Antigravity Skills 技能库
 │   ├── skill-name/     # 独立技能目录
 │   │   ├── SKILL.md    # 技能核心定义与Prompt（必须）
