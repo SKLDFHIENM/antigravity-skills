@@ -2,33 +2,80 @@
 
 通过模块化的 **Skills** 定义，赋予 Agent 在特定领域的专业能力（如全栈开发、复杂逻辑规划、多媒体处理等），让 Agent 能够像人类专家一样系统性地解决复杂问题。
 
-## 📂 目录结构
+## 📂 目录结构 (Directory Structure)
 
 ```
 .
-├── .agent/
-│   └── skills/             # Antigravity Skills 技能库
-│       ├── skill-name/   # 独立技能目录
-│       │   ├── SKILL.md    # 技能核心定义与Prompt（必须）
-│       │   ├── scripts/    # 技能依赖的脚本（可选）
-│       │   ├── examples/   # 技能使用示例（可选）
-│       │   └── resources/  # 技能依赖的模板与资源（可选）
-├── skill-guide/            # 用户手册与文档指南
+├── skills/             # Antigravity Skills 技能库
+│   ├── skill-name/     # 独立技能目录
+│   │   ├── SKILL.md    # 技能核心定义与Prompt（必须）
+│   │   ├── scripts/    # 技能依赖的脚本（可选）
+│   │   ├── examples/   # 技能使用示例（可选）
+│   │   └── resources/  # 技能依赖的模板与资源（可选）
+├── docs/               # 用户手册与文档指南
 │   └── Antigravity_Skills_Manual_CN.md  # 中文使用手册
+├── spec/               # 规范文档
+├── template/           # 新技能模板
 └── README.md
 ```
 
-## 📖 快速开始
-1. 将`.agent`目录复制到你的工作区：
+## 🔌 兼容性 (Compatibility)
+
+Antigravity Skills 遵循通用的 **SKILL.md** 格式，可与任何支持 Agentic Skills 的 AI 编码助手协同工作：
+
+| 工具名称 (Agent) | 类型 | 兼容性 | 项目路径 (Project Path) | 全局路径 (Global Path) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Antigravity** | IDE | ✅ Full | `.agent/skills/` | `~/.gemini/antigravity/skills/` |
+| **Claude Code** | CLI | ✅ Full | `.claude/skills/` | `~/.claude/skills/` |
+| **Gemini CLI** | CLI | ✅ Full | `.gemini/skills/` | `~/.gemini/skills/` |
+| **Codex** | CLI | ✅ Full | `.codex/skills/` | `~/.codex/skills/` |
+| **Cursor** | IDE | ✅ Full | `.cursor/skills/` | `~/.cursor/skills/` |
+| **GitHub Copilot** | Extension| ⚠️ Partial | `.github/skills/` | `~/.copilot/skills/` |
+| **OpenCode** | CLI | ✅ Full | `.opencode/skills/` | `~/.config/opencode/skills/` |
+| **Windsurf** | IDE | ✅ Full | `.windsurf/skills/` | `~/.codeium/windsurf/skills/` |
+| **Trae** | IDE | ✅ Full | `.trae/skills/` | `~/.trae/skills/` |
+
+> [!TIP]
+> 大多数工具都会自动发现 `.agent/skills/` 中的技能。为了获得最大兼容性，请克隆/复制到此目录。
+
+## 📖 快速开始 (Quick Start)
+
+### 1. 准备技能库
+首先将本仓库克隆到本地（建议放在一个固定位置以便全局引用）：
 ```bash
-cp -r .agent /path/to/your/workspace/
+git clone https://github.com/guanyang/antigravity-skills.git ~/antigravity-skills
 ```
-2. **调用 Skill**: 在对话框输入 `@[skill-name]` 或 `/skill-name`来进行调用，例如：
+
+### 2. 安装技能 (Symlink 方式)
+我们强烈建议使用 **符号链接 (Symlink)** 进行安装，这样当你通过 `git pull` 更新本仓库时，所有工具都能自动同步最新功能。
+
+#### 🔹 方案 A：项目级安装 (Project Level)
+仅在当前项目启用技能。在你的项目根目录下运行：
+```bash
+mkdir -p .agent/skills
+ln -s ~/antigravity-skills/skills/* .agent/skills/
+```
+
+#### 🔹 方案 B：全局安装 (Global Level)
+在所有项目中默认启用技能。根据不同工具运行对应命令，给出部分示例：
+
+| 工具名称 | 全局安装命令 (macOS/Linux) |
+| :--- | :--- |
+| **通用** | `mkdir -p ~/.agent/skills && ln -s ~/antigravity-skills/skills/* ~/.agent/skills/` |
+| **Claude Code** | `mkdir -p ~/.claude/skills && ln -s ~/antigravity-skills/skills/* ~/.claude/skills/` |
+| **Antigravity** | `mkdir -p ~/.gemini/antigravity/skills && ln -s ~/antigravity-skills/skills/* ~/.gemini/antigravity/skills/` |
+| **Gemini** | `mkdir -p ~/.gemini/skills && ln -s ~/antigravity-skills/skills/* ~/.gemini/skills/` |
+| **Codex** | `mkdir -p ~/.codex/skills && ln -s ~/antigravity-skills/skills/* ~/.codex/skills/` |
+
+### 3. 使用技能
+在对话框中输入 `@[skill-name]` 或 `/skill-name` 即可调用，例如：
 ```text
-/canvas-design 帮我设计一张关于“Deep Learning”的博客封面，风格要素雅、科技感，尺寸 16:9
+/canvas-design 帮我设计一张关于“Deep Learning”的博客封面，尺寸 16:9
 ```
-3. **查看手册**: 详细的使用案例和参数说明请查阅 [skill-guide/Antigravity_Skills_Manual_CN.md](skill-guide/Antigravity_Skills_Manual_CN.md)。
-4. **环境依赖**: 部分 Skill (如 PDF, XLSX) 依赖 Python 环境，请确保 `.venv` 处于激活状态或系统已安装相应库。
+
+### 4. 更多信息
+- **查看手册**: 详细用法请查阅 [docs/Antigravity_Skills_Manual_CN.md](docs/Antigravity_Skills_Manual_CN.md)。
+- **环境依赖**: 部分技能依赖 Python 环境，请确保系统已安装必要的库（如 `pdf2docx`, `pandas` 等）。
 
 
 ## 🚀 已集成的 Skills
@@ -100,10 +147,18 @@ cp -r .agent /path/to/your/workspace/
 - **`@[multi-agent-patterns]`**: 设计 Supervisor、Swarm 等高级多 Agent 协作模式
 - **`@[hosted-agents]`**: 构建和部署沙盒化、持久运行的后台 Agent
 
-## 📚 参考文档
-- [Anthropic Skills](https://github.com/anthropic/skills)
-- [UI/UX Pro Max Skills](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
-- [Superpowers](https://github.com/obra/superpowers)
-- [Planning with Files](https://github.com/OthmanAdi/planning-with-files)
-- [NotebookLM](https://github.com/PleasePrompto/notebooklm-skill)
-- [Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering)
+## 🌟 致谢与来源 (Credits & Sources)
+
+本项目集成了以下优秀开源项目的核心思想或 Skill 实现，向原作者致敬：
+
+- **[Anthropic Skills](https://github.com/anthropic/skills)**: Anthropic 官方提供的 API 使用范式与技能定义参考。
+- **[UI/UX Pro Max Skills](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)**: 顶级的 UI/UX 设计智能，提供配色、布局等全套设计方案参考。
+- **[Superpowers](https://github.com/obra/superpowers)**: 旨在赋予 LLM "超能力" 的工具集与工作流启发。
+- **[Planning with Files](https://github.com/OthmanAdi/planning-with-files)**: 实现类似 Manus 的文件式任务规划系统，提升复杂任务的持久化记忆。
+- **[NotebookLM](https://github.com/PleasePrompto/notebooklm-skill)**: 基于 Google NotebookLM 的知识检索与问答技能实现。
+- **[Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering)**: 深入的上下文工程（Context Engineering）技能，涵盖压缩、优化与降级处理。
+
+## 📄 开源协议 (License)
+
+本项目采用 [MIT License](LICENSE) 协议开源。
+

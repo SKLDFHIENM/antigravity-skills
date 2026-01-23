@@ -75,3 +75,9 @@ build/
 *.egg-info/
 
 examples
+.agent
+.claude
+.gemini
+.codex
+.opencode
+.cursor
