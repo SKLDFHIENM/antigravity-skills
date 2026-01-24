@@ -1,6 +1,6 @@
 # Antigravity Skills
 
-[中文](README.md) | [English](README.EN.md)
+[中文](README.md) | [English](docs/README.en.md)
 
 通过模块化的 **Skills** 定义，赋予 Agent 在特定领域的专业能力（如全栈开发、复杂逻辑规划、多媒体处理等），让 Agent 能够像人类专家一样系统性地解决复杂问题。
 
@@ -89,7 +89,7 @@ ln -s ~/antigravity-skills/skills/* .agent/skills/
 ```
 
 ### 4. 更多信息
-- **查看手册**: 详细用法请查阅 [docs/Antigravity_Skills_Manual_CN.md](docs/Antigravity_Skills_Manual_CN.md)。
+- **查看手册**: 详细用法请查阅 [docs/Antigravity_Skills_Manual.md](docs/Antigravity_Skills_Manual.md)。
 - **环境依赖**: 部分技能依赖 Python 环境，请确保系统已安装必要的库（如 `pdf2docx`, `pandas` 等）。
 
 

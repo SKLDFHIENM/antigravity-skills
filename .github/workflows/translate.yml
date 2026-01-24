@@ -12,6 +12,8 @@ on:
 jobs:
   translate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,28 +23,16 @@ jobs:
         with:
           LANG: en
 
-      - name: Rename translated README
-        run: |
-          if [ -f "README.en.md" ]; then
-            mv README.en.md README.EN.md
-          fi
-
       - name: Translate Manual to English
         uses: dephraiim/translate-readme@main
         with:
           LANG: en
-          readme-path: docs/Antigravity_Skills_Manual_CN.md
-
-      - name: Rename translated Manual
-        run: |
-          if [ -f "docs/Antigravity_Skills_Manual_CN.en.md" ]; then
-            mv docs/Antigravity_Skills_Manual_CN.en.md docs/Antigravity_Skills_Manual_EN.md
-          fi
+          readme-path: docs/Antigravity_Skills_Manual.md
 
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.EN.md docs/Antigravity_Skills_Manual_EN.md
-          git commit -m "docs: manually triggered translation of documentation to English" || echo "No changes to commit"
+          git add README.en.md docs/Antigravity_Skills_Manual.en.md
+          git commit -m "docs: auto triggered translation of documentation to English" || echo "No changes to commit"
           git push
