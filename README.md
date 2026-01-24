@@ -1,6 +1,6 @@
 # Antigravity Skills
 
-[中文](README.zh-CN.md) | [English](README.md)
+[简体中文](README.zh-CN.md) | [English](README.md)
 
 Empower agents with professional capabilities in specific fields (such as full-stack development, complex logic planning, multimedia processing, etc.) through modular **Skills** definitions, allowing agents to solve complex problems systematically like human experts.
 
