@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2.2.0] - 2026-02-02
+### Added
+- **Sync Mechanism**: Introduced `skills_sources.json` configuration and `scripts/sync_skills.sh` script to keep skills synchronized with upstream open-source repositories.
+- **Source Configuration**: Pre-configured sync sources for major skills including `anthropics-skills`, `notebooklm`, `superpowers`, etc.
+
 ## [v2.1.0] - 2026-01-24
 ### Added
 - **3 New Skills**:

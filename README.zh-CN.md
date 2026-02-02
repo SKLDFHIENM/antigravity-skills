@@ -8,7 +8,7 @@
 
 ```
 .
-├── .claude-plugin/    # Claude 插件配置文件 (plugin.json, marketplace.json)
+├── .claude-plugin/     # Claude 插件配置文件 (plugin.json)
 ├── skills/             # Antigravity Skills 技能库
 │   ├── skill-name/     # 独立技能目录
 │   │   ├── SKILL.md    # 技能核心定义与Prompt（必须）
@@ -16,7 +16,9 @@
 │   │   ├── examples/   # 技能使用示例（可选）
 │   │   └── resources/  # 技能依赖的模板与资源（可选）
 ├── docs/               # 用户手册与文档指南
-│   └── Antigravity_Skills_Manual_CN.md  # 中文使用手册
+├── scripts/            # 项目维护脚本
+├── skills_sources.json # 技能同步源配置文件
+├── skills_index.json   # 技能元数据索引
 ├── spec/               # 规范文档
 ├── template/           # 新技能模板
 └── README.md
@@ -91,6 +93,27 @@ ln -s ~/antigravity-skills/skills/* .agent/skills/
 ### 4. 更多信息
 - **查看手册**: 详细用法请查阅 [docs/Antigravity_Skills_Manual.zh-CN.md](docs/Antigravity_Skills_Manual.zh-CN.md)。
 - **环境依赖**: 部分技能依赖 Python 环境，请确保系统已安装必要的库（如 `pdf2docx`, `pandas` 等）。
+
+
+## 🔄 保持同步 (Keeping in Sync)
+
+本项目中的许多技能源自优秀的开源社区。为了保持与上游仓库的同步，可以通过以下方式更新：
+
+1.  **配置源**: 根目录下的 `skills_sources.json` 文件已预置了主要 Skill 的上游仓库配置，通常无需手动修改。
+2.  **运行同步**:
+    你可以选择同步所有 Skill，或者仅同步指定的某一个：
+    
+    ```bash
+    # 同步所有配置的源
+    ./scripts/sync_skills.sh
+
+    # 仅同步指定源 (例如: anthropics-skills)
+    ./scripts/sync_skills.sh anthropics-skills
+    ```
+    该脚本会自动拉取最新代码并更新对应的技能目录。
+
+    > **注意**: `ui-ux-pro-max` 技能由于目录结构较为特殊，暂不支持通过脚本自动同步，请使用其官方安装命令 `uipro init --ai antigravity` 进行安装或更新。
+
 
 
 ## 🚀 已集成的 Skills (共 50 个)
@@ -170,7 +193,7 @@ ln -s ~/antigravity-skills/skills/* .agent/skills/
 
 本项目集成了以下优秀开源项目的核心思想或 Skill 实现，向原作者致敬：
 
-- **[Anthropic Skills](https://github.com/anthropic/skills)**: Anthropic 官方提供的 API 使用范式与技能定义参考。
+- **[Anthropic Skills](https://github.com/anthropics/skills)**: Anthropic 官方提供的 API 使用范式与技能定义参考。
 - **[UI/UX Pro Max Skills](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)**: 顶级的 UI/UX 设计智能，提供配色、布局等全套设计方案参考。
 - **[Superpowers](https://github.com/obra/superpowers)**: 旨在赋予 LLM "超能力" 的工具集与工作流启发。
 - **[Planning with Files](https://github.com/OthmanAdi/planning-with-files)**: 实现类似 Manus 的文件式任务规划系统，提升复杂任务的持久化记忆。

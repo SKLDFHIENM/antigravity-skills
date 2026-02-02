@@ -9,6 +9,7 @@ env/
 data/
 data/*
 data/**/*
+!skills/ui-ux-pro-max/data/
 
 # Claude-specific
 .claude/

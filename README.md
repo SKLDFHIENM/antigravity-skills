@@ -8,7 +8,7 @@ Empower agents with professional capabilities in specific fields (such as full-s
 
 ```
 .
-├── .claude-plugin/    # Claude plugin configuration files (plugin.json, marketplace.json)
+├── .claude-plugin/     # Claude plugin configuration files
 ├── skills/             # Antigravity Skills library
 │   ├── skill-name/     # Individual skill directory
 │   │   ├── SKILL.md    # Core skill definition and Prompt (Required)
@@ -16,7 +16,9 @@ Empower agents with professional capabilities in specific fields (such as full-s
 │   │   ├── examples/   # Skill usage examples (Optional)
 │   │   └── resources/  # Templates and resources relied upon by the skill (Optional)
 ├── docs/               # User manual and documentation guides
-│   └── Antigravity_Skills_Manual.md  # User manual
+├── scripts/            # Maintenance scripts
+├── skills_sources.json # Skills synchronization source config
+├── skills_index.json   # Skills metadata index
 ├── spec/               # Specification documents
 ├── template/           # New skill template
 └── README.md
@@ -91,6 +93,26 @@ Enter `@[skill-name]` or `/skill-name` in the chat box to invoke them, for examp
 ### 4. More Information
 - **View Manual**: For detailed usage, please refer to [docs/Antigravity_Skills_Manual.en.md](docs/Antigravity_Skills_Manual.en.md).
 - **Environment Dependencies**: Some skills rely on Python environments; please ensure your system has necessary libraries installed (e.g., `pdf2docx`, `pandas`, etc.).
+
+
+## 🔄 Keeping in Sync
+
+Many skills in this project originate from excellent open-source communities. To keep in sync with upstream repositories, you can update them in the following ways:
+
+1.  **Configuration**: The `skills_sources.json` file in the root directory is pre-configured with the upstream repositories for major skills and usually does not need manual adjustment.
+2.  **Run Sync**:
+    You can choose to sync all skills or just a specific one:
+
+    ```bash
+    # Sync all configured sources
+    ./scripts/sync_skills.sh
+
+    # Sync only a specific source (e.g., anthropics-skills)
+    ./scripts/sync_skills.sh anthropics-skills
+    ```
+    The script will automatically pull the latest code and update the corresponding skill directories.
+
+    > **Note**: The `ui-ux-pro-max` skill has a special directory structure and does not support automatic synchronization via script for now. Please use its official installation command `uipro init --ai antigravity` to install or update.
 
 ## 🚀 Integrated Skills (Total: 50)
 
@@ -169,7 +191,7 @@ These skills allow me to extend my own capability boundaries.
 
 This project integrates core ideas or skill implementations from the following excellent open-source projects. Respect to the original authors:
 
-- **[Anthropic Skills](https://github.com/anthropic/skills)**: Official API usage paradigms and skill definition references provided by Anthropic.
+- **[Anthropic Skills](https://github.com/anthropics/skills)**: Official API usage paradigms and skill definition references provided by Anthropic.
 - **[UI/UX Pro Max Skills](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)**: Top-tier UI/UX design intelligence, providing full design schemes for colors, layouts, etc.
 - **[Superpowers](https://github.com/obra/superpowers)**: A toolkit and workflow inspiration aimed at giving LLMs "superpowers."
 - **[Planning with Files](https://github.com/OthmanAdi/planning-with-files)**: Implements a Manus-style file-based task planning system to enhance persistent memory for complex tasks.
