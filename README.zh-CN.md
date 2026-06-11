@@ -57,6 +57,7 @@
 | **Cursor** | IDE | ✅ 完整 | `.cursor/` | `~/.cursor/` |
 | **Trae** | IDE | ✅ 完整 | `.trae/` | `~/.trae/` |
 | **OpenCode** | CLI | ✅ 完整 | `.opencode/` | `~/.config/opencode/` |
+| **Kiro** | CLI/Agent | ✅ 完整 | `.kiro/` | `~/.kiro/` |
 
 > [!TIP]
 > CLI 工具 (`oah`) 会在这些路径下自动映射相应的子目录，例如：技能映射至 `<Path>/skills/`，专家角色映射至 `<Path>/agents/`，快捷命令映射至 `<Path>/commands/`。
@@ -125,7 +126,7 @@ oah disable
 *   **可选参数：**
     *   `-p, --project`：项目工作区级别激活（默认行为，软链接至当前命令行所在项目目录下的配置目录中，如 `.claude/` 等）。
     *   `-g, --global`：系统全局级别激活（软链接至用户家目录系统路径下，如 `~/.claude/` 等）。
-    *   `-t, --target <name>`：指定目标环境（支持：`claude`, `antigravity`, `gemini`, `codex`, `cursor`, `trae`, `opencode` 以及 `all`，默认值：`claude`）。
+    *   `-t, --target <name>`：指定目标环境（支持：`claude`, `antigravity`, `gemini`, `codex`, `cursor`, `trae`, `opencode`, `kiro` 以及 `all`，默认值：`claude`）。
     *   `--path <dir_path>`：指定自定义目标基准目录（激活/禁用时会自动在该路径下处理 `skills/`、`agents/` 和 `commands/`）。
 
 

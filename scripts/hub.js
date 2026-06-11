@@ -49,6 +49,10 @@ const targets = {
   opencode: {
     project: '.opencode',
     global: path.join(os.homedir(), '.config', 'opencode')
+  },
+  kiro: {
+    project: '.kiro',
+    global: path.join(os.homedir(), '.kiro')
   }
 };
 
@@ -623,7 +627,7 @@ ${format('bold', '命令列表:')}
 ${format('bold', '通用参数选项 (Options):')}
   -p, --project                  项目工作区级别激活 (软链接至当前项目目录下，默认行为)
   -g, --global                   系统全局级别激活 (软链接至家目录系统目录下)
-  -t, --target <name>            指定目标环境 (可选值: claude, antigravity, gemini, codex, cursor, trae, opencode, all。默认: claude) (别名: --assistant, --host, --tool)
+  -t, --target <name>            指定目标环境 (可选值: claude, antigravity, gemini, codex, cursor, trae, opencode, kiro, all。默认: claude) (别名: --assistant, --host, --tool)
   --path <dir_path>              指定自定义目标基准目录 (激活时会在该目录下创建 skills/、agents/、commands/)
 
 ${format('bold', '环境变量配置 (可选/优先级最高):')}

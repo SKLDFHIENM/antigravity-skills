@@ -57,6 +57,7 @@ To maintain clean and focused documentation, deep-dive specifications have been 
 | **Cursor** | IDE | ✅ Full | `.cursor/` | `~/.cursor/` |
 | **Trae** | IDE | ✅ Full | `.trae/` | `~/.trae/` |
 | **OpenCode** | CLI | ✅ Full | `.opencode/` | `~/.config/opencode/` |
+| **Kiro** | CLI/Agent | ✅ Full | `.kiro/` | `~/.kiro/` |
 
 > [!TIP]
 > The CLI tool (`oah`) links files into subdirectories under these paths, e.g., `<Path>/skills/` for skills, `<Path>/agents/` for agents, and `<Path>/commands/` for slash commands.
@@ -125,7 +126,7 @@ oah disable
 *   **Options:**
     *   `-p, --project` (default): Project-level activation (links config directories inside your current working directory, e.g. `.claude/`).
     *   `-g, --global`: System global level activation (e.g., links into user home config folder, like `~/.claude/`).
-    *   `-t, --target <name>`: Target environment to link to (supported: `claude`, `antigravity`, `gemini`, `codex`, `cursor`, `trae`, `opencode` and `all` to configure all of them, default: `claude`).
+    *   `-t, --target <name>`: Target environment to link to (supported: `claude`, `antigravity`, `gemini`, `codex`, `cursor`, `trae`, `opencode`, `kiro` and `all` to configure all of them, default: `claude`).
     *   `--path <dir_path>`: Custom base directory to link components into (creates and links within `skills/`, `agents/`, and `commands/` subdirectories automatically).
 
 
