@@ -60,7 +60,7 @@
 | **Kiro** | CLI/Agent | ✅ 完整 | `.kiro/` | `~/.kiro/` |
 
 > [!TIP]
-> CLI 工具 (`oah`) 会在这些路径下自动映射相应的子目录，例如：技能映射至 `<Path>/skills/`，专家角色映射至 `<Path>/agents/`，快捷命令映射至 `<Path>/commands/`。
+> CLI 工具 (`oah`) 会在这些路径下自动映射相应的子目录，例如：技能映射至 `<Path>/skills/`，专家角色映射至 `<Path>/agents/`，快捷命令映射至 `<Path>/commands/`。此外，仓库还原生提供了 Claude Code (`.claude-plugin/`)、Codex (`.codex-plugin/`) 与 Cursor (`.cursor-plugin/`) 的官方插件配置。
 
 ---
 

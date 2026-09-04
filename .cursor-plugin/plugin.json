@@ -1,0 +1,35 @@
+{
+  "name": "open-agent-hub",
+  "displayName": "Open Agent Hub",
+  "version": "3.0.0",
+  "description": "Unified capability management center for Skills, Agents, and Commands.",
+  "author": {
+    "name": "guanyang",
+    "email": "guanyangsunlight@gmail.com"
+  },
+  "homepage": "https://github.com/guanyang/open-agent-hub",
+  "repository": "https://github.com/guanyang/open-agent-hub",
+  "license": "MIT",
+  "logo": "assets/logo.png",
+  "keywords": [
+    "agent",
+    "skills",
+    "cli",
+    "hub",
+    "cursor",
+    "cursor-plugin",
+    "open-agent-hub"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "skills",
+    "agents",
+    "commands",
+    "mcp",
+    "developer-tools"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "commands": "./commands/",
+  "mcpServers": "./.mcp.json"
+}

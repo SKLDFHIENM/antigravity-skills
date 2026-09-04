@@ -60,7 +60,7 @@ To maintain clean and focused documentation, deep-dive specifications have been 
 | **Kiro** | CLI/Agent | ✅ Full | `.kiro/` | `~/.kiro/` |
 
 > [!TIP]
-> The CLI tool (`oah`) links files into subdirectories under these paths, e.g., `<Path>/skills/` for skills, `<Path>/agents/` for agents, and `<Path>/commands/` for slash commands.
+> The CLI tool (`oah`) links files into subdirectories under these paths, e.g., `<Path>/skills/` for skills, `<Path>/agents/` for agents, and `<Path>/commands/` for slash commands. In addition to directory linking, native plugin configurations are provided for Claude Code (`.claude-plugin/`), Codex (`.codex-plugin/`), and Cursor (`.cursor-plugin/`).
 
 ---
 

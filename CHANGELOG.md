@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - **Specialist Agents & Slash Commands**: Added Specialist Agent system prompts (`agents/`) and runtime Slash Commands (`commands/`, e.g., `/commit`, `/review`, `/test-tdd`).
 - **Support for Multi-target Configuration**: Added `--target=all` / `-t all` option in `oah` CLI tool to link/unlink components to all supported targets in a single command.
 - **Support for Codex Plugin**: Added `.codex-plugin/` plugin configuration for Codex ecosystem.
+- **Support for Cursor Plugin**: Added `.cursor-plugin/` plugin and marketplace configuration (`plugin.json` and `marketplace.json`) adhering to the official Cursor plugin specification.
 - **Custom Installation Paths**: Added support for `--path <dir_path>` option in `oah` CLI tool to link/unlink components to any custom target directory, automatically structuring `skills/`, `agents/`, and `commands/` subfolders within it.
 
 ### Changed

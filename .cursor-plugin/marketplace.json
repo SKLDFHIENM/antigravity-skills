@@ -1,0 +1,17 @@
+{
+  "name": "open-agent-hub",
+  "owner": {
+    "name": "guanyang",
+    "email": "guanyangsunlight@gmail.com"
+  },
+  "metadata": {
+    "description": "Open Agent Hub plugin marketplace"
+  },
+  "plugins": [
+    {
+      "name": "open-agent-hub",
+      "source": "./",
+      "description": "Unified capability management center for Skills, Agents, and Commands."
+    }
+  ]
+}
